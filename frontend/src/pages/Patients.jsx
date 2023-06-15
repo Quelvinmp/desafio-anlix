@@ -1,6 +1,6 @@
 import React from 'react';
-import SearchPatients from './SearchPatients';
-import CharsCard from './CharsCard';
+import SearchPatients from '../components/SearchPatients';
+import CharsCard from '../components/CharsCard';
 
 export default function Patients() {
   return (

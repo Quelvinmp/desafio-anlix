@@ -1,5 +1,5 @@
 import React from 'react';
-import Patients from './components/Patients';
+import Patients from './pages/Patients';
 
 function App() {
   return (
