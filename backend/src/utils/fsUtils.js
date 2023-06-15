@@ -66,22 +66,28 @@ const getPatientByNameAndDisease = async (name, disease) => {
   const chosenDisease = disease === 'cardiaco' ? ind_card_dir : ind_pulm_dir;
   const archives = await readDir(chosenDisease);
   const patientsWithChosenDisease = await readArchivesAndSeparateByLine(archives, chosenDisease);
-  const chosenPatient = getPatientsByName(name)[0].cpf;
-  const chosenPatientDisease = patientsWithChosenDisease.filter((patient) => patient.cpf === chosenPatient);
+  const chosenPatient = getPatientsByName(name)[0];
+  const chosenPatientDisease = patientsWithChosenDisease.filter((patient) => patient.cpf === chosenPatient.cpf);
   const mostRecentChar = chosenPatientDisease.sort((a,b) => Number(b.epoch) - Number(a.epoch))[0];
-  return mostRecentChar
+
+  const patientInfos = {
+    patient: chosenPatient,
+    mostRecentChar
+  }
+  return patientInfos
 }
 
 const getPatientAndDiseases = async (name) => {
-  const {epoch, ind} = await getPatientByNameAndDisease(name, 'cardiaco');
-  const {epoch: epochPulm, ind: indPulm} = await getPatientByNameAndDisease(name, 'pulmonar');
-  const patient = getPatientsByName(name)[0].cpf;
+  const {mostRecentChar: {epoch, ind}} = await getPatientByNameAndDisease(name, 'cardiaco');
+  const {mostRecentChar: {epoch: epochPulm, ind: indPulm}} = await getPatientByNameAndDisease(name, 'pulmonar');
+  const patient = getPatientsByName(name)[0];
 
   const latestPatientInformations = {
     patient,
     ind_card: {epoch, ind},
     ind_pulm: {epochPulm, indPulm}
   }
+
 
   return latestPatientInformations
 }
@@ -108,7 +114,7 @@ const getByGenericInterval = async (sortedArchives, firstPosition, lastPosition)
 }
 
 const getPatientCharByDateInterval = async ({name, disease, initial_date, final_date}) => {
-  const chosenPatient = getPatientsByName(name)[0].cpf;
+  const chosenPatient = getPatientsByName(name)[0];
   const chosenDisease = disease === 'cardiaco' ? ind_card_dir : ind_pulm_dir;
   const archives = await readDir(chosenDisease);
   const sortedArchives = sortArchives(archives);
@@ -137,7 +143,7 @@ const getPatientCharByDateInterval = async ({name, disease, initial_date, final_
   }
 
   const allPatientsCharByIntervalDate = await readArchivesAndSeparateByLine(chosenIntervalInfos, chosenDisease);
-  const specificPatientChar = allPatientsCharByIntervalDate.filter((patient) => patient.cpf === chosenPatient);
+  const specificPatientChar = allPatientsCharByIntervalDate.filter((patient) => patient.cpf === chosenPatient.cpf);
 
   const indKeyName = disease === 'cardiaco' ? 'ind_card' : 'ind_pulm';
 
@@ -153,7 +159,7 @@ const getPatientCharByDateInterval = async ({name, disease, initial_date, final_
 }
 
 const getLatestCharByPatientAndIndAndDisease = async ({name, disease, initial_ind, final_ind}) => {
-  const chosenPatient = getPatientsByName(name)[0].cpf;
+  const chosenPatient = getPatientsByName(name)[0];
   const chosenDisease = disease === 'cardiaco' ? ind_card_dir : ind_pulm_dir;
   const indKeyName = disease === 'cardiaco' ? 'ind_card' : 'ind_pulm';
 
