@@ -1,80 +1,105 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 module.exports = {
-  "patientCharByDateInterval": {
-    "patient": "974.642.524-20",
-      "initial_date": "13062021",
-        "final_date": "21062021",
-          "message": "Search performed between the specified dates",
-            "ind_card": [
-              {
-                "cpf": "974.642.524-20",
-                "epoch": "1623622976",
-                "ind": "0.077012"
-              },
-              {
-                "cpf": "974.642.524-20",
-                "epoch": "1623575110",
-                "ind": "0.831961"
-              },
-              {
-                "cpf": "974.642.524-20",
-                "epoch": "1623573849",
-                "ind": "0.986810"
-              },
-              {
-                "cpf": "974.642.524-20",
-                "epoch": "1623599377",
-                "ind": "0.602257"
-              },
-              {
-                "cpf": "974.642.524-20",
-                "epoch": "1623568070",
-                "ind": "0.236787"
-              },
-              {
-                "cpf": "974.642.524-20",
-                "epoch": "1623578108",
-                "ind": "0.987304"
-              },
-              {
-                "cpf": "974.642.524-20",
-                "epoch": "1623580191",
-                "ind": "0.542256"
-              },
-              {
-                "cpf": "974.642.524-20",
-                "epoch": "1623627769",
-                "ind": "0.788408"
-              },
-              {
-                "cpf": "974.642.524-20",
-                "epoch": "1624311504",
-                "ind": "0.917845"
-              },
-              {
-                "cpf": "974.642.524-20",
-                "epoch": "1624280649",
-                "ind": "0.852834"
-              },
-              {
-                "cpf": "974.642.524-20",
-                "epoch": "1624330210",
-                "ind": "0.662953"
-              },
-              {
-                "cpf": "974.642.524-20",
-                "epoch": "1624252151",
-                "ind": "0.633995"
-              },
-              {
-                "cpf": "974.642.524-20",
-                "epoch": "1624303961",
-                "ind": "0.209466"
-              },
-              {
-                "cpf": "974.642.524-20",
-                "epoch": "1624328914",
-                "ind": "0.091022"
-              }
-            ]
-  }
-}
+  patientCharByDateInterval: {
+    patient: {
+      nome: 'Alexandre Caleb Costa',
+      idade: 55,
+      cpf: '974.642.524-20',
+      rg: '22.107.246-9',
+      data_nasc: '19/01/1967',
+      sexo: 'Masculino',
+      signo: 'Capricórnio',
+      mae: 'Beatriz Alícia',
+      pai: 'Nelson Heitor Costa',
+      email: 'aalexandrecalebcosta@br.loreal.com',
+      senha: '6eXIFok6iQ',
+      cep: '69309-415',
+      endereco: 'Rua das Palmas de Santa Rita',
+      numero: 765,
+      bairro: 'Pricumã',
+      cidade: 'Boa Vista',
+      estado: 'RR',
+      telefone_fixo: '(95) 3783-9661',
+      celular: '(95) 99359-1588',
+      altura: '1,96',
+      peso: 63,
+      tipo_sanguineo: 'A-',
+      cor: 'laranja',
+    },
+    initial_date: '13062021',
+    final_date: '21062021',
+    message: 'Search performed between the specified dates',
+    ind_card: [
+      {
+        cpf: '974.642.524-20',
+        epoch: '1623622976',
+        ind: '0.077012',
+      },
+      {
+        cpf: '974.642.524-20',
+        epoch: '1623575110',
+        ind: '0.831961',
+      },
+      {
+        cpf: '974.642.524-20',
+        epoch: '1623573849',
+        ind: '0.986810',
+      },
+      {
+        cpf: '974.642.524-20',
+        epoch: '1623599377',
+        ind: '0.602257',
+      },
+      {
+        cpf: '974.642.524-20',
+        epoch: '1623568070',
+        ind: '0.236787',
+      },
+      {
+        cpf: '974.642.524-20',
+        epoch: '1623578108',
+        ind: '0.987304',
+      },
+      {
+        cpf: '974.642.524-20',
+        epoch: '1623580191',
+        ind: '0.542256',
+      },
+      {
+        cpf: '974.642.524-20',
+        epoch: '1623627769',
+        ind: '0.788408',
+      },
+      {
+        cpf: '974.642.524-20',
+        epoch: '1624311504',
+        ind: '0.917845',
+      },
+      {
+        cpf: '974.642.524-20',
+        epoch: '1624280649',
+        ind: '0.852834',
+      },
+      {
+        cpf: '974.642.524-20',
+        epoch: '1624330210',
+        ind: '0.662953',
+      },
+      {
+        cpf: '974.642.524-20',
+        epoch: '1624252151',
+        ind: '0.633995',
+      },
+      {
+        cpf: '974.642.524-20',
+        epoch: '1624303961',
+        ind: '0.209466',
+      },
+      {
+        cpf: '974.642.524-20',
+        epoch: '1624328914',
+        ind: '0.091022',
+      },
+    ],
+  },
+};
