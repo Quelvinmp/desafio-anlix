@@ -6,11 +6,12 @@ import PropTypes from 'prop-types';
 export const AppContext = createContext();
 
 function AppProvider({ children }) {
-  const [patientInfo, setpatientInfo] = useState({});
+  const [patientInfo, setpatientInfo] = useState([]);
+  const [invalidName, setInvalidName] = useState('');
 
   const values = useMemo(() => ({
-    patientInfo, setpatientInfo,
-  }), [patientInfo, setpatientInfo]);
+    patientInfo, setpatientInfo, invalidName, setInvalidName,
+  }), [patientInfo, setpatientInfo, invalidName, setInvalidName]);
 
   return (
     <AppContext.Provider value={values}>

@@ -19,25 +19,29 @@ export default function CharsCard({
   return (
     <div>
 
-      <div className="p-4 bg-gray-200 rounded-md">
+      <div className="p-4 text-sm bg-gray-200 rounded-md">
         <div className="flex flex-col gap-3">
 
-          <div className="flex justify-around">
-            <p>{patient.nome}</p>
-            <p>{patient.cpf}</p>
+          <div className="flex flex-col items-center">
+            <p className="">{patient.nome}</p>
+            <p className="text-xs">
+              CPF:
+              {' '}
+              {patient.cpf}
+            </p>
           </div>
 
-          <div className="flex justify-center gap-6">
-            <p>Cardiaco</p>
+          <div className="flex items-center justify-center gap-6">
+            <p className="text-center">Índice Cardiaco</p>
+            <p className="">{cardInd}</p>
             <p>{transformDate(cardEpoch)}</p>
-            <p>{cardInd}</p>
           </div>
 
           <div>
-            <div className="flex justify-center gap-6">
-              <p>Pulmonar</p>
-              <p>{transformDate(epochPulm)}</p>
+            <div className="flex items-center justify-center gap-6">
+              <p className="text-center">Índice Pulmonar</p>
               <p>{indPulm}</p>
+              <p>{transformDate(epochPulm)}</p>
             </div>
           </div>
 

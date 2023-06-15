@@ -1,23 +1,29 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { useContext, useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 
-export default function SearchPatients() {
-  const { setpatientInfo } = useContext(AppContext);
+export default function Filters() {
+  const { patientInfo, setpatientInfo, setInvalidName } = useContext(AppContext);
   const [name, setName] = useState('');
+
+  const navigate = useNavigate();
 
   const getPatients = (e) => {
     e.preventDefault();
 
     axios.get(`http://localhost:3001/patient/name=${name}/diseases/info`)
-      .then((res) => setpatientInfo(res.data.latestPatientInformations))
-      .catch((err) => console.log(err));
+      .then((res) => {
+        setpatientInfo([...patientInfo, res.data.latestPatientInformations]);
+        setInvalidName('');
+      })
+      .catch(() => setInvalidName('Este nome não consta na base de dados.'));
   };
 
   return (
-    <div className="">
-      <form onSubmit={getPatients} className="flex flex-col items-center justify-center gap-3">
+    <div className="flex flex-col gap-6">
+      <form onSubmit={getPatients} className="flex items-center justify-center gap-3">
 
         <div>
           <input
@@ -35,6 +41,11 @@ export default function SearchPatients() {
         </div>
 
       </form>
+
+      <div className="flex justify-around">
+        <button type="button" className="btn btn-success">Baixar .csv</button>
+        <button type="button" className="btn btn-info" onClick={() => navigate('/graphic')}>Analisar Gráfico</button>
+      </div>
     </div>
   );
 }
