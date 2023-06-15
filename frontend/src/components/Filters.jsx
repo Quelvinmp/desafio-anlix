@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 
 export default function Filters() {
-  const { patientInfo, setpatientInfo, setInvalidName } = useContext(AppContext);
+  const { patientInfo, setPatientInfo, setInvalidName } = useContext(AppContext);
   const [name, setName] = useState('');
 
   const navigate = useNavigate();
@@ -15,10 +15,14 @@ export default function Filters() {
 
     axios.get(`http://localhost:3001/patient/name=${name}/diseases/info`)
       .then((res) => {
-        setpatientInfo([...patientInfo, res.data.latestPatientInformations]);
+        setPatientInfo([...patientInfo, res.data.latestPatientInformations]);
         setInvalidName('');
       })
       .catch(() => setInvalidName('Este nome não consta na base de dados.'));
+  };
+
+  const downloadCSV = () => {
+    console.log(patientInfo);
   };
 
   return (
@@ -43,7 +47,7 @@ export default function Filters() {
       </form>
 
       <div className="flex justify-around">
-        <button type="button" className="btn btn-success">Baixar .csv</button>
+        <button type="button" className="btn btn-success" onClick={downloadCSV}>Baixar .csv</button>
         <button type="button" className="btn btn-info" onClick={() => navigate('/graphic')}>Analisar Gráfico</button>
       </div>
     </div>
