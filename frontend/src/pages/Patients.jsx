@@ -9,7 +9,7 @@ export default function Patients() {
   // csv: /date/name=:name/disease=:disease/initial_date=:initial_date/final_date=:final_date
   return (
     <div className="flex flex-col justify-around w-full h-screen p-4 bg-gray-200">
-      <Filters />
+      <Filters genericButton="Gráfico Temporal" />
       {invalidName && (<p className="text-xs text-center text-error">{invalidName}</p>)}
       <section className="flex flex-col justify-between w-full h-[450px] p-4 bg-red-300 rounded-xl gap-3">
         <div className="flex flex-col gap-3 overflow-y-scroll rounded-md">

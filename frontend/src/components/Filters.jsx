@@ -1,12 +1,14 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { useContext, useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { AppContext } from '../context/AppContext';
 
-export default function Filters() {
+export default function Filters({ genericButton }) {
   const { patientInfo, setPatientInfo, setInvalidName } = useContext(AppContext);
   const [name, setName] = useState('');
+
+  const { pathname } = useLocation();
 
   const navigate = useNavigate();
 
@@ -47,8 +49,8 @@ export default function Filters() {
       </form>
 
       <div className="flex justify-around">
-        <button type="button" className="btn btn-success" onClick={downloadCSV}>Baixar .csv</button>
-        <button type="button" className="btn btn-info" onClick={() => navigate('/graphic')}>Analisar Gráfico</button>
+        {pathname === '/' && (<button type="button" className="btn btn-success" onClick={downloadCSV}>Baixar .csv</button>)}
+        <button type="button" className="btn btn-info" onClick={() => navigate(pathname === '/' ? '/graphic' : '/')}>{genericButton}</button>
       </div>
     </div>
   );
