@@ -1,9 +1,10 @@
+import React from 'react';
+import Patients from './components/Patients';
+
 function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-  )
+    <Patients />
+  );
 }
 
-export default App
+export default App;
