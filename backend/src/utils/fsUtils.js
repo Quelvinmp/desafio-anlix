@@ -127,7 +127,9 @@ const getPatientCharByDateInterval = async ({name, disease, initial_date, final_
 
   switch (true) {
     case firstPosition === -1 && lastPosition === -1:
-      return [];
+      chosenIntervalInfos = await getByGenericInterval(sortedArchives, 0, sortedArchives.length - 1);
+      message = 'Data range not found. Search performed from the first database date to the last database date'
+      break;
     case firstPosition === -1:
       chosenIntervalInfos = await getByGenericInterval(sortedArchives, 0, lastPosition);
       message = 'Initial date not found. Search performed from the first date of the database to the specified final date'
