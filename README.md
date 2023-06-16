@@ -44,38 +44,40 @@ yarn run
 npm run dev
 # sh backend
 npm run dev
+
+### Obs.: As portas utilizadas são :5173 (Frontend) e :3001 (Backend). Certifique-se de que elas estão livres para uso!
 ```
 
 ### Conhecendo as Rotas da API e Como Utilizá-las
 </br>
 
- /patient/name=***nome-do-paciente***
+```/patient/name=<nome-do-paciente> ```
  
 Retorna um array com todas as informações pessoais dos pacientes que contenham as letras indicadas em ***nome-do-paciente***
 </br></br>
 
-/patient/name=***nome-do-paciente***/disease=***doença***
+```/patient/name=<nome-do-paciente>/disease=<doença>```
 
 Retorna um objeto contendo todas as informações pessoais da ***primeira pessoa encontrada*** pelo ***nome-do-paciente*** e sua característica mais recente. </br>
 As opções disponíveis para ***disease*** são ***cardiaco*** e ***pulmonar***
 </br></br>
 
-/patient/name=***nome-do-paciente***/diseases/info
+```/patient/name=<nome-do-paciente>/diseases/info```
 
 Retorna um objeto contendo todas as informações pessoais da ***primeira pessoa encontrada*** pelo ***nome-do-paciente*** e suas características mais recentes (tanto pulmonar quanto cardíaco).
 </br></br>
 
-/ind/name=***nome-do-paciente***/disease=***doença***/initial_ind=***valor-inicial-do-indice***/final_ind=***valor-final-do-indice***
+```/ind/name=<nome-do-paciente>/disease=<doença>/initial_ind=<valor-inicial-do-indice>/final_ind=<valor-final-do-indice>```
 
 Retorna um objeto contendo todas as informações pessoais da ***primeira pessoa encontrada*** pelo ***nome-do-paciente*** e sua característica mais recente (***pulmonar*** ou ***cardiaco***) entre os intervalos de valores dos indices indicados (***valor-inicial-do-indice*** e ***valor-final-do-indice***).
 </br></br>
 
-/date/date=***data***
+```/date/date=<data>```
 
 Retorna um objeto contendo todas as informações de cada característica (***pulmonar*** e ***cardiaco***) que existem na data indicada em ***data***
 </br></br>
 
-/date/name=***nome-do-paciente***/disease=***doença***/initial_date=***data-inicial***/final_date=***data-final***
+```/date/name=<nome-do-paciente>/disease=<doença>/initial_date=<data-inicial>/final_date=<data-final>```
 
 Retorna um objeto contendo todas as informações pessoais da ***primeira pessoa encontrada*** pelo ***nome-do-paciente*** e todos os registros da característica indicada (***pulmonar*** ou ***cardiaco***) entre os intervalos de data indicados (***data-inicial*** e ***data-final***). </br>
 O formato aceito pela API é DDMMAAAA
