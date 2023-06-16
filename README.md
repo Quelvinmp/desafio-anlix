@@ -207,8 +207,218 @@ The user is able to search for a patient and select an index so that a graph can
 
 ## API Returns / Retornos da Api
 
+### Request
 
+```GET /patient/name=alexandre```
 
+### Response
 
+```json
+{
+  "result": [
+    {
+      "nome": "Alexandre Caleb Costa",
+      "idade": 55,
+      "cpf": "974.642.524-20",
+      "rg": "22.107.246-9",
+      "data_nasc": "19/01/1967",
+      "sexo": "Masculino",
+      "signo": "Capricórnio",
+      "mae": "Beatriz Alícia",
+      "pai": "Nelson Heitor Costa",
+      "email": "aalexandrecalebcosta@br.loreal.com",
+      "senha": "6eXIFok6iQ",
+      "cep": "69309-415",
+      "endereco": "Rua das Palmas de Santa Rita",
+      "numero": 765,
+      "bairro": "Pricumã",
+      "cidade": "Boa Vista",
+      "estado": "RR",
+      "telefone_fixo": "(95) 3783-9661",
+      "celular": "(95) 99359-1588",
+      "altura": "1,96",
+      "peso": 63,
+      "tipo_sanguineo": "A-",
+      "cor": "laranja"
+    }
+  ]
+}
+```
+</br>
 
+### Request
 
+```GET /patient/name=alexandre/diseases/info```
+
+### Response
+
+```json
+{
+  "latestPatientInformations": {
+    "patient": {
+      "nome": "Alexandre Caleb Costa",
+      "idade": 55,
+      "cpf": "974.642.524-20",
+      "rg": "22.107.246-9",
+      "data_nasc": "19/01/1967",
+      "sexo": "Masculino",
+      "signo": "Capricórnio",
+      "mae": "Beatriz Alícia",
+      "pai": "Nelson Heitor Costa",
+      "email": "aalexandrecalebcosta@br.loreal.com",
+      "senha": "6eXIFok6iQ",
+      "cep": "69309-415",
+      "endereco": "Rua das Palmas de Santa Rita",
+      "numero": 765,
+      "bairro": "Pricumã",
+      "cidade": "Boa Vista",
+      "estado": "RR",
+      "telefone_fixo": "(95) 3783-9661",
+      "celular": "(95) 99359-1588",
+      "altura": "1,96",
+      "peso": 63,
+      "tipo_sanguineo": "A-",
+      "cor": "laranja"
+    },
+    "ind_card": {
+      "epoch": "1624330210",
+      "ind": "0.662953"
+    },
+    "ind_pulm": {
+      "epochPulm": "1624255351",
+      "indPulm": "0.085284"
+    }
+  }
+}
+```
+</br>
+
+### Request
+
+```GET /patient/name=alexandre/disease=cardiaco```
+
+### Response
+
+```json
+{
+  "mostRecentCharacteristic": {
+    "patient": {...},
+    "mostRecentChar": {
+      "cpf": "974.642.524-20",
+      "epoch": "1624330210",
+      "ind": "0.662953"
+    }
+  }
+}
+```
+</br>
+
+### Request
+
+```GET /ind/name=alexandre/disease=cardiaco/initial_ind=0.5/final_ind=0.6```
+
+### Response
+
+```json
+{
+  "latestCharEqualToSpecifiedIndAndDisease": {
+    "patient": {...},
+    "initial_ind": "0.5",
+    "final_ind": "0.6",
+    "ind_card": {
+      "mostRecentCharacteristic": {
+        "cpf": "041.897.838-70",
+        "epoch": "1624329301",
+        "ind": "0.563628"
+      }
+    }
+  }
+}
+```
+</br>
+
+### Request
+
+```GET /date/date=01062021```
+
+### Response
+
+```json
+{
+  "allCharByDate": {
+    "filter_date": "01062021",
+    "ind_card": [
+      {
+        "cpf": "529.310.074-20",
+        "epoch": "1622563699",
+        "ind": "0.715997"
+      },
+      {
+        "cpf": "618.702.796-54",
+        "epoch": "1622600710",
+        "ind": "0.919170"
+      },
+      {
+        "cpf": "285.773.707-63",
+        "epoch": "1622572441",
+        "ind": "0.392114"
+      },
+      {...}
+    ],
+    "ind_pulm": [
+      {
+        "cpf": "069.221.825-45",
+        "epoch": "1622537549",
+        "ind": "0.646007"
+      },
+      {
+        "cpf": "130.423.502-58",
+        "epoch": "1622543577",
+        "ind": "0.859751"
+      },
+      {
+        "cpf": "955.930.874-23",
+        "epoch": "1622575305",
+        "ind": "0.949747"
+      },
+     {...}
+    ]
+  }
+}
+```
+</br>
+
+### Request
+
+```GET /date/name=alexandre/disease=cardiaco/initial_date=13062021/final_date=21062021```
+
+### Response
+
+```json
+{
+  "patientCharByDateInterval": {
+    "patient": {...},
+    "initial_date": "13062021",
+    "final_date": "21062021",
+    "message": "Search performed between the specified dates",
+    "ind_card": [
+      {
+        "cpf": "974.642.524-20",
+        "epoch": "1623622976",
+        "ind": "0.077012"
+      },
+      {
+        "cpf": "974.642.524-20",
+        "epoch": "1623575110",
+        "ind": "0.831961"
+      },
+      {
+        "cpf": "974.642.524-20",
+        "epoch": "1623573849",
+        "ind": "0.986810"
+      },
+     {...}
+    ]
+  }
+}
+```
