@@ -6,6 +6,11 @@
 
 ## Português
 
+### Descrição do Desafio
+
+Esse desafio consiste na criação de uma API usando uma grande base de dados de um hospital contendo informações (datas, dados pessoais, indices) de pacientes em estado terminal.</br>
+Além de criar uma interface gráfica para que a pessoa usuária consiga realizar pesquisas, analisar gráficos temporais e baixar as informações em formato .csv
+
 ### Como Executar o Projeto
 
 Pré-Requisitos: npm || yarn || docker
