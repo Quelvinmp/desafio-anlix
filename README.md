@@ -2,7 +2,7 @@
 
 [Português :brazil:](#português)
 <br/>
-[Inglês :us:](#)
+[English :us:](#english)
 
 ## Português
 
@@ -102,6 +102,106 @@ O arquivo é originalmente ordenado pela data, mas a partir do download qualquer
 ##### Gráfico Temporal
 
 O usuário é capaz de pesquisar um paciente e selecionar um índice para que possa ser apresentado um gráfico contendo todos os registros referente a essas informações selecionadas (***nome do paciente*** e ***indice***)
+</br></br>
+
+## English
+
+### Challenge Description
+
+This challenge consists of creating an API using a large hospital database containing information (dates, personal data, indexes) of terminally ill patients.</br>
+In addition to creating a graphical interface so that the user can carry out searches, analyze time graphs and download information in .csv format
+
+### How to Run the Project
+
+Prerequisites: npm || docker
+
+```bash
+# Clone Repository
+git clone git@github.com:Quelvinmp/Star-Wars-Filters-Project.git
+
+# Enter the challenge-anlix project folder
+cd 'challenge-anlix'
+
+# Install Dependencies
+## NPM
+npm install
+## DOCKER
+docker compose up -d
+docker exec -it <container-frontend-id> sh
+npm install
+docker exec -it <container-backend-id> sh
+npm install
+
+# Run the Project
+## NPM
+npm start
+## DOCKER
+# sh frontend
+npm run dev
+# sh backend
+npm run dev
+
+### Note: The ports used are :5173 (Frontend) and :3001 (Backend). Make sure they are free to use!
+
+# Run the Project tests
+## frontend sh to run frontend tests
+npm run test
+## sh from backend to run backend tests
+npm run test
+```
+
+### Knowing API Routes and How to Use Them
+</br>
+
+```/patient/name=<patient-name> ```
+ 
+Returns an array with all the personal information of patients that contain the letters indicated in ***patient-name***
+</br></br>
+
+```/patient/name=<patient-name>/disease=<disease>```
+
+Returns an object containing all the personal information of the ***first person found*** by ***patient-name*** and his most recent characteristic. </br>
+The available options for ***disease*** are ***cardiaco*** and ***pulmonar***
+</br></br>
+
+```/patient/name=<patient-name>/diseases/info```
+
+Returns an object containing all the personal information of the ***first person found*** by ***patient-name*** and their most recent characteristics (both pulmonar and cardiaco).
+</br></br>
+
+```/ind/name=<patient-name>/disease=<disease>/initial_ind=<initial-index-value>/final_ind=<final-index-value>```
+
+Returns an object containing all the personal information of the ***first person found*** by ***patient-name*** and its most recent characteristic (***pulmonar*** or ***cardiaco** *) between the value ranges of the indicated indices (***initial-index-value*** and ***final-index-value***).
+</br></br>
+
+```/date/date=<date>```
+
+Returns an object containing all the information for each characteristic (***pulmonar*** and ***cardiaco***) that exist on the date indicated in ***date***
+</br></br>
+
+```/date/name=<patient-name>/disease=<disease>/initial_date=<initial-date>/final_date=<final-date>```
+
+Returns an object containing all the personal information of the ***first person found*** by ***patient-name*** and all records of the indicated characteristic (***pulmonar*** or ***cardiaco ***) between the indicated date ranges (***start-date*** and ***end-date***). </br>
+The format accepted by the API is DDMMYYYY
+</br></br>
+
+### Graphic interface
+</br>
+
+The entire frontend was built following the mobile first practice with stylization changes in the breakpoints: 640px and 1024px for a better user experience on any screen size.
+
+##### Search
+
+The user is able to search for patients by name (or letters) and store them in a list, which can be completely cleared by pressing a button.
+
+##### Download .CSV File
+
+The user can download a .csv file where all the records of the characteristics of each patient present in the list are listed.</br>
+The file is originally sorted by date, but once downloaded, any filter can be applied however you like!
+
+##### Time Chart
+
+The user is able to search for a patient and select an index so that a graph can be displayed containing all the records referring to the selected information (***patient name*** and ***index***)
 
 
 
