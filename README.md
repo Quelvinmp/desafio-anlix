@@ -51,6 +51,7 @@ npm run test
 ```
 
 ### Conhecendo as Rotas da API e Como Utilizá-las
+##### Clique [aqui](#api-returns--retornos-da-api) para ver objetos retornados em cada endpoint
 </br>
 
 ```/patient/name=<nome-do-paciente> ```
@@ -151,6 +152,7 @@ npm run test
 ```
 
 ### Knowing API Routes and How to Use Them
+##### Click [here](#api-returns--retornos-da-api) to see objects returned on each endpoint
 </br>
 
 ```/patient/name=<patient-name> ```
@@ -203,6 +205,7 @@ The file is originally sorted by date, but once downloaded, any filter can be ap
 
 The user is able to search for a patient and select an index so that a graph can be displayed containing all the records referring to the selected information (***patient name*** and ***index***)
 
+## API Returns / Retornos da Api
 
 
 
