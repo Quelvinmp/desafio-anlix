@@ -13,7 +13,7 @@ Além de criar uma interface gráfica para que a pessoa usuária consiga realiza
 
 ### Como Executar o Projeto
 
-Pré-Requisitos: npm || yarn || docker
+Pré-Requisitos: npm || docker
 
 ```bash
 # Clonar Repositório
@@ -25,8 +25,6 @@ cd 'desafio-anlix'
 # Instalar Dependências
 ## NPM
 npm install
-## YARN
-yarn
 ## DOCKER
 docker compose up -d
 docker exec -it <id-do-container-frontend> sh
@@ -37,8 +35,6 @@ npm install
 # Executar o Projeto
 ## NPM
 npm start
-## YARN
-yarn run
 ## DOCKER
 # sh frontend
 npm run dev
@@ -46,6 +42,12 @@ npm run dev
 npm run dev
 
 ### Obs.: As portas utilizadas são :5173 (Frontend) e :3001 (Backend). Certifique-se de que elas estão livres para uso!
+
+# Rodar os testes do Projeto
+## sh do frontend para rodar os testes do frontend
+npm run test
+## sh do backend para rodar os testes do backend
+npm run test
 ```
 
 ### Conhecendo as Rotas da API e Como Utilizá-las
