@@ -147,7 +147,7 @@ export default function Filters({ genericButton }) {
 
       </form>
 
-      <div className="flex justify-around">
+      <div className="flex justify-center gap-6">
         {pathname === '/' && (
         <CSVLink
           className="btn btn-success"

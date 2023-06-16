@@ -11,7 +11,7 @@ export default function Patients() {
       <Filters genericButton="Gráfico Temporal" />
       {invalidName && (<p className="text-xs text-center text-error">{invalidName}</p>)}
       {patientInfo.length > 0 && (
-      <section className="flex flex-col justify-between w-full h-[450px] p-4 bg-base-200 rounded-xl gap-3">
+      <section className="flex flex-col justify-between w-full h-[450px] max-w-5xl mx-auto p-4 bg-base-200 rounded-xl gap-3 sm:h-[550px] ">
         <div className="flex flex-col gap-3 overflow-y-scroll rounded-md">
           {patientInfo
             .map((info) => (<CharsCard info={info} key={`${info.patient.nome}-${info.patient.data_nasc}`} />))}
