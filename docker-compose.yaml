@@ -1,14 +1,10 @@
 version: '3'
 services:
   frontend:
-    image: node:16-alpine
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     container_name: anlix_test_front
-    working_dir: /app
-    volumes:
-      - ./frontend:/app
-    stdin_open: true
-    tty: true
-    command: sh
     ports:
       - 5173:5173
     restart: on-failure
@@ -17,14 +13,10 @@ services:
     depends_on:
       - backend
   backend:
-    image: node:16-alpine
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
     container_name: anlix_test_back
-    working_dir: /app
-    volumes:
-      - ./backend:/app
-    stdin_open: true
-    tty: true
-    command: sh
     ports:
       - 3001:3001
     restart: on-failure
