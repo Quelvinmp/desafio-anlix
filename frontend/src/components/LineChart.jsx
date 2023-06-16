@@ -30,6 +30,7 @@ export default function LineChart() {
     const formatedData = [dataLegend, ...formatedChars];
 
     setData(formatedData);
+    console.log(formatedData);
   };
 
   useEffect(() => {
