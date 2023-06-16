@@ -30,7 +30,6 @@ export default function LineChart() {
     const formatedData = [dataLegend, ...formatedChars];
 
     setData(formatedData);
-    console.log(formatedData);
   };
 
   useEffect(() => {
@@ -44,12 +43,11 @@ export default function LineChart() {
   }, [patientLineChart]);
 
   return (
-    <div>
+    <div className="justify-self-center h-96">
       <Chart
-        className=""
         chartType="Line"
         width="100%"
-        height="400px"
+        height="100%"
         data={data}
         options={options}
       />
