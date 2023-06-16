@@ -1,15 +1,10 @@
 const express = require('express');
-const cors = require('cors');
 const {
   getPatientsByName, getPatientByNameAndDisease, getPatientAndDiseases,
 } = require('../utils/fsUtils');
 const { validateDisease, validateName } = require('../middlewares/index');
 
 const router = express.Router();
-
-const corsOptions = {
-  origin: 'http://localhost:5173',
-};
 
 router.get('/patient/name=:name', validateName, (req, res) => {
   const result = getPatientsByName(req.params.name);
@@ -27,7 +22,7 @@ async (req, res) => {
   return res.status(200).json({ mostRecentCharacteristic });
 });
 
-router.get('/patient/name=:name/diseases/info', cors(corsOptions), validateName,
+router.get('/patient/name=:name/diseases/info', validateName,
 async (req, res) => {
   const { name } = req.params;
 

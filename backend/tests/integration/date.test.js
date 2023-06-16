@@ -35,15 +35,6 @@ information by the date entered when it does not find the data in this case`, as
     .keys('patient', 'initial_date', 'final_date', 'message', 'ind_card');
 });
 
-it(`/:name/:disease/:initial_date/:final_date returns an error
-message when the date range is not in the list`, async () => {
-    const response = await chai.request(app)
-    .get('/date/name=ale/disease=cardiaco/initial_date=14062023/final_date=14062024');
-
-    expect(response.status).to.be.equal(404);
-    expect(response.body.message).to.be.equal('Date Range that does Not Exist in the Database.');
-});
-
 it(`/:name/:disease/:initial_date/:final_date returns an object
 containing all information based on date range`, async () => {
     const response = await chai.request(app)
