@@ -21,7 +21,7 @@ export default function Filters({ genericButton }) {
 
   const navigate = useNavigate();
 
-  const getPatients = (e) => {
+  const getPatients = async (e) => {
     if (!confirmeDownload) e.preventDefault();
     if (confirmeDownload) {
       setConfirmeDownload(false);
@@ -29,16 +29,15 @@ export default function Filters({ genericButton }) {
     }
 
     if (pathname === '/' && e.target.innerHTML === 'Pesquisar') {
-      axios.get(`http://localhost:3001/patient/name=${patientName}/diseases/info`)
-        .then(({ data: { latestPatientInformations } }) => {
-          setPatientInfo([...patientInfo, latestPatientInformations]);
-          setInvalidName('');
-          setPatientName('');
-        })
-        .catch(() => {
-          if (patientName.length) setInvalidName('Este nome não consta na base de dados.');
-          else { setInvalidName('Por favor, insira um nome!'); }
-        });
+      try {
+        const data = await axios.get(`http://localhost:3001/patient/name=${patientName}/diseases/info`);
+        setPatientInfo([...patientInfo, data.data.latestPatientInformations]);
+        setInvalidName('');
+        setPatientName('');
+      } catch (err) {
+        if (patientName.length) setInvalidName('Este nome não consta na base de dados.');
+        else { setInvalidName('Por favor, insira um nome!'); }
+      }
       return;
     }
     if (pathname === '/' && e.target.innerHTML === 'Baixar .csv') {
