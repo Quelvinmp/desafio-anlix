@@ -30,8 +30,8 @@ export default function Filters({ genericButton }) {
 
     if (pathname === '/' && e.target.innerHTML === 'Pesquisar') {
       axios.get(`http://localhost:3001/patient/name=${patientName}/diseases/info`)
-        .then((res) => {
-          setPatientInfo([...patientInfo, res.data.latestPatientInformations]);
+        .then(({ data: { latestPatientInformations } }) => {
+          setPatientInfo([...patientInfo, latestPatientInformations]);
           setInvalidName('');
           setPatientName('');
         })

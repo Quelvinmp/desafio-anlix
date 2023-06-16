@@ -8,7 +8,7 @@ export default function Graphic() {
   const { patientLineChart } = useContext(AppContext);
 
   return (
-    <div className="flex flex-col justify-around w-full h-screen bg-gray-200">
+    <div className="flex flex-col justify-around w-full h-screen ">
       <Filters genericButton="Lista de Pacientes" />
       {patientLineChart.patient && (<LineChart />)}
     </div>

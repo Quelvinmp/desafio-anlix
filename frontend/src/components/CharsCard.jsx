@@ -19,7 +19,7 @@ export default function CharsCard({
   return (
     <div>
 
-      <div className="p-4 text-sm bg-gray-200 rounded-md">
+      <div className="p-4 text-sm rounded-md bg-neutral">
         <div className="flex flex-col gap-3">
 
           <div className="flex flex-col items-center">

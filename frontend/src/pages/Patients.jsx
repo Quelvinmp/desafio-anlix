@@ -7,11 +7,11 @@ export default function Patients() {
   const { patientInfo, invalidName, setPatientInfo } = useContext(AppContext);
 
   return (
-    <div className="flex flex-col justify-around w-full h-screen p-4 bg-gray-200">
+    <div className="flex flex-col justify-around w-full h-screen p-4 ">
       <Filters genericButton="Gráfico Temporal" />
       {invalidName && (<p className="text-xs text-center text-error">{invalidName}</p>)}
       {patientInfo.length > 0 && (
-      <section className="flex flex-col justify-between w-full h-[450px] p-4 bg-red-300 rounded-xl gap-3">
+      <section className="flex flex-col justify-between w-full h-[450px] p-4 bg-base-200 rounded-xl gap-3">
         <div className="flex flex-col gap-3 overflow-y-scroll rounded-md">
           {patientInfo
             .map((info) => (<CharsCard info={info} key={`${info.patient.nome}-${info.patient.data_nasc}`} />))}
