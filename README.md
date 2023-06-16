@@ -17,7 +17,7 @@ Pré-Requisitos: npm || docker
 
 ```bash
 # Clonar Repositório
-git clone git@github.com:Quelvinmp/Star-Wars-Filters-Project.git
+git clone git@github.com:Quelvinmp/desafio-anlix.git
 
 # Entrar na pasta do projeto desafio-anlix
 cd 'desafio-anlix'
@@ -110,7 +110,7 @@ Prerequisites: npm || docker
 
 ```bash
 # Clone Repository
-git clone git@github.com:Quelvinmp/Star-Wars-Filters-Project.git
+git clone git@github.com:Quelvinmp/desafio-anlix.git
 
 # Enter the challenge-anlix project folder
 cd 'challenge-anlix'
