@@ -7,7 +7,7 @@ export default function Patients() {
   const { patientInfo, invalidName, setPatientInfo } = useContext(AppContext);
 
   return (
-    <div className="flex flex-col justify-around w-full h-screen p-4 ">
+    <div className="flex flex-col justify-around w-full h-screen gap-6 p-4">
       <Filters genericButton="Gráfico Temporal" />
       {invalidName && (<p className="text-xs text-center text-error">{invalidName}</p>)}
       {patientInfo.length > 0 && (
