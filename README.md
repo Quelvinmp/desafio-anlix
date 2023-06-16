@@ -22,24 +22,14 @@ git clone git@github.com:Quelvinmp/Star-Wars-Filters-Project.git
 # Entrar na pasta do projeto desafio-anlix
 cd 'desafio-anlix'
 
-# Instalar Dependências
-## NPM
+#NPM 
+# Instalar Dependências (tanto na pasta do frontend como na do backed)
 npm install
-## DOCKER
-docker compose up -d
-docker exec -it <id-do-container-frontend> sh
-npm install
-docker exec -it <id-do-container-backend> sh
-npm install
+# Executar o Projeto (tanto na pasta do frontend como na do backed)
+npm run dev
 
-# Executar o Projeto
-## NPM
-npm start
-## DOCKER
-# sh frontend
-npm run dev
-# sh backend
-npm run dev
+#Docker
+docker-compose up --build
 
 ### Obs.: As portas utilizadas são :5173 (Frontend) e :3001 (Backend). Certifique-se de que elas estão livres para uso!
 
@@ -123,24 +113,14 @@ git clone git@github.com:Quelvinmp/Star-Wars-Filters-Project.git
 # Enter the challenge-anlix project folder
 cd 'challenge-anlix'
 
-# Install Dependencies
-## NPM
+#NPM
+# Install Dependencies (both in frontend and backed folder)
 npm install
-## DOCKER
-docker compose up -d
-docker exec -it <container-frontend-id> sh
-npm install
-docker exec -it <container-backend-id> sh
-npm install
+# Run the Project (both in the frontend and backed folder)
+npm run dev
 
-# Run the Project
-## NPM
-npm start
-## DOCKER
-# sh frontend
-npm run dev
-# sh backend
-npm run dev
+#Docker
+docker-compose up --build
 
 ### Note: The ports used are :5173 (Frontend) and :3001 (Backend). Make sure they are free to use!
 
